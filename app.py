@@ -1,45 +1,24 @@
-import pickle
-import numpy as np
-import pandas as pd
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
+import joblib
 
-# Load the saved model and vectorizer
-with open("spam_model.pkl", "rb") as model_file:
-    model = pickle.load(model_file)
-
-with open("tfidf_vectorizer.pkl", "rb") as vec_file:
-    vectorizer = pickle.load(vec_file)
-
-# Initialize Flask app
 app = Flask(__name__)
 
-@app.route("/")
+# Load the trained model and vectorizer
+model = joblib.load("spam_model.pkl")
+vectorizer = joblib.load("tfidf_vectorizer.pkl")
+
+@app.route('/')
 def home():
-    return "SMS Spam Detection API is Running!"
+    return render_template('index.html')  # Loads the UI page
 
-@app.route("/predict", methods=["POST"])
+@app.route('/predict', methods=['POST'])
 def predict():
-    try:
-        # Get JSON input
-        data = request.get_json()
+    data = request.form['message']  # Get message from form input
+    transformed_data = vectorizer.transform([data])  # Convert text to numerical
+    prediction = model.predict(transformed_data)  # Predict spam or not spam
 
-        # Extract message text
-        sms_text = data.get("message", "")
+    result = "Spam" if prediction[0] == 1 else "Not Spam"
+    return render_template('index.html', prediction=result)  # Display result
 
-        # Transform using vectorizer
-        transformed_text = vectorizer.transform([sms_text])
-
-        # Make prediction
-        prediction = model.predict(transformed_text)
-
-        # Convert result
-        result = "Spam" if prediction[0] == 1 else "Not Spam"
-
-        return jsonify({"prediction": result})
-
-    except Exception as e:
-        return jsonify({"error": str(e)})
-
-# Run the Flask app
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
