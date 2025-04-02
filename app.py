@@ -17,8 +17,10 @@ def predict():
     transformed_data = vectorizer.transform([data])  # Convert text to numerical
     prediction = model.predict(transformed_data)  # Predict spam or not spam
 
-    result = "Spam" if prediction[0] == 1 else "Not Spam"
-    return render_template('index.html', prediction=result)  # Display result
+    result = "spam" if prediction[0] == 1 else "ham"
+    
+    # Return JSON instead of reloading HTML
+    return jsonify({'prediction': result})  
 
 if __name__ == '__main__':
     app.run(debug=True)
