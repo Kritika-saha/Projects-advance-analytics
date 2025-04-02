@@ -54,6 +54,7 @@ This project is an AI-based SMS Spam Detection application that classifies messa
    - Used `git add .`, `git commit -m "Initial commit"`, `git push origin main`
 2. **Created a Render Web Service**
    - Connected GitHub repo to Render.
+   - It will create a workspace and the dashboard will look like this[Dahboard](https://github.com/Kritika-saha/Projects-advance-analytics/blob/main/screenshots/Screenshot%202025-03-30%20222455.png)
    - Deployed the API successfully.
 3. **Tested API on Render using Postman**
    - Screenshot of **Render API Test in Postman**:
@@ -61,6 +62,7 @@ This project is an AI-based SMS Spam Detection application that classifies messa
 
 ### Deployed API Link:
 [https://projects-advance-analytics.onrender.com](https://projects-advance-analytics.onrender.com)
+[Application](https://github.com/Kritika-saha/Projects-advance-analytics/blob/main/screenshots/Screenshot%202025-04-02%20211236.png)
 
 ---
 ## 5️⃣ How to Run Locally
