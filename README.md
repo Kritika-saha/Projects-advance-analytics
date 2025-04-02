@@ -56,7 +56,8 @@ This project is an AI-based SMS Spam Detection application that classifies messa
    - Connected GitHub repo to Render.
    - It will create a workspace and the dashboard will look like this:
      ![Dashboard](https://github.com/Kritika-saha/Projects-advance-analytics/blob/main/screenshots/Screenshot%202025-03-30%20222455.png)
-   - Deployed the API successfully.
+   - If we click on webs services we can select the directory where our files are present and click on Deploy.
+   - It will deploy and build the API successfully.
 3. **Tested API on Render using Postman**
    - Screenshot of **Render API Test in Postman**:
      ![Render API Test](https://github.com/Kritika-saha/Projects-advance-analytics/blob/main/screenshots/Screenshot%202025-03-31%20103114.png)
@@ -64,7 +65,7 @@ This project is an AI-based SMS Spam Detection application that classifies messa
 ### Deployed API Link:
 [https://projects-advance-analytics.onrender.com](https://projects-advance-analytics.onrender.com)
 -Application:
-[Application](https://github.com/Kritika-saha/Projects-advance-analytics/blob/main/screenshots/Screenshot%202025-04-02%20211236.png)
+![Application](https://github.com/Kritika-saha/Projects-advance-analytics/blob/main/screenshots/Screenshot%202025-04-02%20211236.png)
 
 ---
 ## 5️⃣ How to Run Locally
