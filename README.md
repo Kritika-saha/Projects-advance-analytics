@@ -34,7 +34,7 @@ This project is an AI-based SMS Spam Detection application that classifies messa
    - Predicts whether a message is **Spam** or **Not Spam**.
 2. **Tested API using Postman**.
    - Screenshot of **Postman API Testing**:
-     ![Postman API Test](INSERT_YOUR_SCREENSHOT_LINK_HERE)
+     ![Postman API Test](https://github.com/Kritika-saha/Projects-advance-analytics/blob/main/screenshots/Screenshot%202025-03-29%20100302.png)
 
 ---
 ## 3️⃣ Frontend - Web Interface
@@ -57,7 +57,7 @@ This project is an AI-based SMS Spam Detection application that classifies messa
    - Deployed the API successfully.
 3. **Tested API on Render using Postman**
    - Screenshot of **Render API Test in Postman**:
-     ![Render API Test](INSERT_YOUR_SCREENSHOT_LINK_HERE)
+     ![Render API Test](https://github.com/Kritika-saha/Projects-advance-analytics/blob/main/screenshots/Screenshot%202025-03-31%20103114.png)
 
 ### Deployed API Link:
 [https://projects-advance-analytics.onrender.com](https://projects-advance-analytics.onrender.com)
