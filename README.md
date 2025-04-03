@@ -65,7 +65,7 @@ This project is an AI-based SMS Spam Detection application that classifies messa
 ### Deployed API Link:
 [https://projects-advance-analytics.onrender.com](https://projects-advance-analytics.onrender.com)
 -Application:
-![Application](https://github.com/Kritika-saha/Projects-advance-analytics/blob/main/screenshots/Screenshot%202025-04-02%20211236.png)
+![Application]()
 
 ---
 ## 5️⃣ How to Run Locally
