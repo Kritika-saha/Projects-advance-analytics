@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,21 +8,21 @@
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            background: url('background-image.png') no-repeat center center fixed;
+            background-image: url("{{ url_for('static', filename='images/background-image.png') }}");
             background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
-            position: relative;
         }
         .container {
             width: 40%;
             margin: 50px auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(176, 208, 255, 0.9); /* Light blue similar to the background */
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            position: relative;
-            z-index: 2;
         }
         h1 {
             color: #333;
@@ -57,30 +57,57 @@
         }
         .spam { background-color: #ff4d4d; color: white; }
         .ham { background-color: #28a745; color: white; }
-        
-        /* Doodle Placement */
-        .doodle {
-            position: absolute;
-            width: 100px;
-            height: auto;
+        .examples {
+            margin-top: 20px;
+            text-align: left;
         }
-        .doodle1 { top: 10px; left: 10px; }
-        .doodle2 { top: 10px; right: 10px; }
-        .doodle3 { bottom: 10px; left: 10px; }
-        .doodle4 { bottom: 10px; right: 10px; }
+        .examples h3 {
+            margin-bottom: 5px;
+        }
+        .example-msg {
+            background-color: #e9ecef;
+            padding: 8px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .example-msg:hover {
+            background-color: #d6d8db;
+        }
     </style>
 </head>
 <body>
-    <img src="doodle1.png" class="doodle doodle1">
-    <img src="doodle2.png" class="doodle doodle2">
-    <img src="doodle3.png" class="doodle doodle3">
-    <img src="doodle4.png" class="doodle doodle4">
-
     <div class="container">
         <h1>SMS Spam Detection</h1>
         <input type="text" id="message" placeholder="Enter your message">
         <button onclick="checkSpam()">Check</button>
         <div id="result" class="result"></div>
+
+        <!-- Example Messages -->
+        <div class="examples">
+            <h3>Try These Examples:</h3>
+            <h4>📌 Spam Examples:</h4>
+            <div class="example-msg" onclick="fillMessage('Congratulations! You have won a $1000 gift card. Claim now!')">
+                🎉 Congratulations! You have won a $1000 gift card. Claim now!
+            </div>
+            <div class="example-msg" onclick="fillMessage('You won a free iPhone! Click here to claim your prize.')">
+                📱 You won a free iPhone! Click here to claim your prize.
+            </div>
+            <div class="example-msg" onclick="fillMessage('Hurry! Exclusive offer for you. 90% off on your next purchase.')">
+                🛍️ Hurry! Exclusive offer for you. 90% off on your next purchase.
+            </div>
+
+            <h4>✅ Ham Examples:</h4>
+            <div class="example-msg" onclick="fillMessage('Hey, are we still meeting at 6 PM?')">
+                🕕 Hey, are we still meeting at 6 PM?
+            </div>
+            <div class="example-msg" onclick="fillMessage('Can you send me the notes from today’s class?')">
+                📚 Can you send me the notes from today’s class?
+            </div>
+            <div class="example-msg" onclick="fillMessage('Let’s go for a movie this weekend!')">
+                🎬 Let’s go for a movie this weekend!
+            </div>
+        </div>
     </div>
 
     <script>
@@ -95,11 +122,20 @@
             .then(response => response.json())
             .then(data => {
                 let resultDiv = document.getElementById("result");
-                resultDiv.style.display = "block";
-                resultDiv.textContent = data.prediction.toUpperCase();
-                resultDiv.className = "result " + (data.prediction === "spam" ? "spam" : "ham");
+                resultDiv.style.display = "block"; // Show the result box
+                resultDiv.textContent = data.prediction.toUpperCase(); // Show spam/ham
+
+                if (data.prediction === "spam") {
+                    resultDiv.className = "result spam";
+                } else {
+                    resultDiv.className = "result ham";
+                }
             })
             .catch(error => console.error("Error:", error));
+        }
+
+        function fillMessage(text) {
+            document.getElementById("message").value = text;
         }
     </script>
 </body>
